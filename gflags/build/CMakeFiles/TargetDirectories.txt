@@ -1,3 +1,0 @@
-/home/novauto/Learn/Cpp_thirdPartyStudy/gflags/build/CMakeFiles/rebuild_cache.dir
-/home/novauto/Learn/Cpp_thirdPartyStudy/gflags/build/CMakeFiles/edit_cache.dir
-/home/novauto/Learn/Cpp_thirdPartyStudy/gflags/build/CMakeFiles/main_cmake.dir
