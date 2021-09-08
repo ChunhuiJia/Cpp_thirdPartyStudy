@@ -20,11 +20,11 @@ FLAGS_minloglevel = google::GLOG_WARNING; // 设置最小处理日志的级别
 [glog官方文档(github)](https://github.com/google/glog/)
 
 ## Issue
-问题1：在ros里面，glog和ROS_INFO是不是类似的作用，ROS_INFO能不能也输出到文件里呢？
-答：其实感觉和glog的日志等级有点类似。
-ROS中日志被划分成如下级别：
-ROS_DEBUG（调试）：只在调试时使用，此类消息不会输出到控制台；
-ROS_INFO（信息）：标准消息，一般用于说明系统内正在执行的操作；
-ROS_WARN（警告）：提醒一些异常情况，但程序仍然可以执行；
-ROS_ERROR（错误）：提示错误信息，此类错误会影响程序运行；
-ROS_FATAL（严重错误）：此类错误将阻止节点继续运行；
+问题1：在ros里面，glog和ROS_INFO是不是类似的作用，ROS_INFO能不能也输出到文件里呢？  
+答：其实感觉和glog的日志等级有点类似。  
+ROS中日志被划分成如下级别：  
+ROS_DEBUG（调试）：只在调试时使用，此类消息不会输出到控制台；  
+ROS_INFO（信息）：标准消息，一般用于说明系统内正在执行的操作；  
+ROS_WARN（警告）：提醒一些异常情况，但程序仍然可以执行；  
+ROS_ERROR（错误）：提示错误信息，此类错误会影响程序运行；  
+ROS_FATAL（严重错误）：此类错误将阻止节点继续运行；  
