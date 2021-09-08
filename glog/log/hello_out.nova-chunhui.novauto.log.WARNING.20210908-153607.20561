@@ -1,0 +1,5 @@
+Log file created at: 2021/09/08 15:36:07
+Running on machine: nova-chunhui
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0908 15:36:07.390358 20561 main.cpp:8] Hello dsfdddf2s world
+F0908 15:36:07.391867 20561 main.cpp:21] Check failed: 1 == 2 (1 vs. 2) : The world must be ending!

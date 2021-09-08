@@ -1,0 +1,3 @@
+/home/novauto/Learn/Cpp_thirdPartyStudy/glog/build/CMakeFiles/edit_cache.dir
+/home/novauto/Learn/Cpp_thirdPartyStudy/glog/build/CMakeFiles/rebuild_cache.dir
+/home/novauto/Learn/Cpp_thirdPartyStudy/glog/build/CMakeFiles/hello_out.dir

@@ -1,0 +1,9 @@
+Log file created at: 2021/09/08 15:38:01
+Running on machine: nova-chunhui
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0908 15:38:01.286818 20878 main.cpp:10] Hello dsfdddf2s world
+I0908 15:38:01.287264 20878 main.cpp:13] Got lots of cookies
+I0908 15:38:01.287273 20878 main.cpp:17] Got the 1 the cookie
+I0908 15:38:01.287279 20878 main.cpp:17] Got the 11 the cookie
+I0908 15:38:01.287284 20878 main.cpp:17] Got the 21 the cookie
+I0908 15:38:01.287288 20878 main.cpp:20] Found cookies

@@ -1,0 +1,4 @@
+Log file created at: 2021/09/08 15:26:19
+Running on machine: nova-chunhui
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0908 15:26:19.195717 17661 main.cpp:8] Hello dsfdddf2s world

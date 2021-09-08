@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/novauto/Learn/Cpp_thirdPartyStudy/glog/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -g -Wall -o CMakeFiles/hello_out.dir/main.cpp.o -c /home/novauto/Learn/Cpp_thirdPartyStudy/glog/main.cpp",
+  "file": "/home/novauto/Learn/Cpp_thirdPartyStudy/glog/main.cpp"
+}
+]
