@@ -1,0 +1,4 @@
+/home/novauto/Learn/Cpp_thirdPartyStudy/Protobuf/cpp_use/build/CMakeFiles/rebuild_cache.dir
+/home/novauto/Learn/Cpp_thirdPartyStudy/Protobuf/cpp_use/build/CMakeFiles/edit_cache.dir
+/home/novauto/Learn/Cpp_thirdPartyStudy/Protobuf/cpp_use/build/CMakeFiles/list_person_cpp.dir
+/home/novauto/Learn/Cpp_thirdPartyStudy/Protobuf/cpp_use/build/CMakeFiles/add_person_cpp.dir
