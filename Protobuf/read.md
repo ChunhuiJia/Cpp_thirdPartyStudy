@@ -6,6 +6,8 @@
 
 [google protobuf官方文档](https://developers.google.com/protocol-buffers/docs/proto)
 
+[protobuf3官方文档翻译版--开发学院网](https://www.kaifaxueyuan.com/basic/protobuf3.html)
+
 [protobuf github](https://github.com/protocolbuffers/protobuf)
 
 ## 安装：

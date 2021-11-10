@@ -7,3 +7,4 @@ find_package(Threads)
 add_executable(test_glog main.cpp)
 target_link_libraries(test_glog  libgflags.a libglog.a  ${CMAKE_THREAD_LIBS_INIT})
 ```
+

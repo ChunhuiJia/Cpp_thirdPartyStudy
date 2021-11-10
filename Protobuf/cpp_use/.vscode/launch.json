@@ -20,9 +20,9 @@
     
     ​            "request": "launch",
     
-    ​            "program": "${workspaceFolder}/build/add_person_cpp",      //mark1: The absolute path of the executable file
+    ​            "program": "${workspaceFolder}/build/list_person_cpp",      //mark1: The absolute path of the executable file
     
-    ​            "args": [],
+    ​            "args": ["address_book_file"],
     
     ​            "stopAtEntry": false,
     
