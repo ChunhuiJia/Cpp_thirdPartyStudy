@@ -479,3 +479,60 @@ g++ list_people.cc addressbook.pb.cc -I/usr/local/include -L/usr/local/lib -lpro
 下图中红色框内是第二次输入和输出的结果，我发现上次输入到address_book_file里的信息也打印出来的，看来输入信息时是以append的方式写入的，不是以cover的形式覆盖的。
 
 ![image-20211021211407078](read.assets/image-20211021211407078.png)
+
+## 常用API
+
+### 1.TextFormat::Print(message, output); 
+
+`\#include "google/protobuf/text_format.h"`
+
+[参考链接：class TextFormat::Printer](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format#TextFormat.Printer)
+
+用于那些需要更细粒度地控制如何打印protobuffer消息的用户。
+
+`static bool TextFormat::Print(const Message & message, io::ZeroCopyOutputStream * output)`
+
+将给定的message的以文本表示形式输出给指定的输出流，如果打印失败，则返回false。
+
+### 2.TextFormat::Parse(input, message);
+
+`#include "google/protobuf/text_format.h"`
+
+[参考链接：class TextFormat::Printer](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format#TextFormat.Printer)
+
+`static bool TextFormat::Parse(io::ZeroCopyInputStream * input, Message * output)`
+
+这个函数解析由[Print()](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format#TextFormat.Print)编写的人类可读格式。成功时返回true。消息首先被清空，即使函数失败--请参阅[Merge()](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format#TextFormat.Merge)来避免这种行为。
+
+例如输入："user {\n id: 123 extra { gender: MALE language: 'en' }\n}"
+
+这个函数的一个用途是在测试代码中解析手写字符串。另一个用途是解析来自[google::protobuf::Message::DebugString()](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.DebugString) (或 ShortDebugString()), 因为这些函数使用[google::protobuf::TextFormat::Print()](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format#TextFormat.Print)输出。
+
+如果你想读取以（非人类可读的）二进制格式串行化的protocol buffer，请参阅[google::protobuf::MessageLite::ParseFromString()](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message_lite#MessageLite.ParseFromString).
+
+### 3.FileInputStream
+
+`#include <google/protobuf/io/zero_copy_stream_impl.h>`
+
+**class FileInputStream: public [ZeroCopyInputStream](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream#ZeroCopyInputStream)**
+
+[参考链接：zero_copy_stream_impl.h](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl#FileInputStream)
+
+ZeroCopyInputStream *input = new FileInputStream(file_descriptor);
+
+[FileInputStream](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl#FileInputStream) 优于使用带有[IstreamInputStream](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl#IstreamInputStream)的`ifstream`, 后者将引入额外的缓冲层，从而损害性能。此外，可以想象 [FileInputStream](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream_impl#FileInputStream)有朝一日可以得到增强，以在支持它们的操作系统上使用零拷贝文件描述符。
+
+`explicit FileInputStream::FileInputStream(int file_descriptor, int block_size = -1)`：创建一个从给定的Unix文件描述符读取的流。如果给出了block_size，它指定每次调用Next()时读取和返回的字节数，否则，使用合理的默认值。
+
+> 零拷贝：[参考文献：原来 8 张图，就可以搞懂「零拷贝」了](https://zhuanlan.zhihu.com/p/258513662)
+
+### 4.ZeroCopyInputStream
+
+\#include [google/protobuf/io/zero_copy_stream.h](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream#)
+
+[参考链接：zero_copy_stream.h](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.io.zero_copy_stream#ZeroCopyInputStream)
+
+这个文件包含 ZeroCopyInputStream 和 ZeroCopyOutputStream 接口，它们代表抽象的 I/O 流，protocol buffers可以从中读取和写入。
+
+这些接口与经典 I/O 流的不同之处在于它们试图最小化需要完成的数据复制量。 为此，分配缓冲区的责任转移到流对象，而不是调用者的责任。 因此，流可以返回一个缓冲区，该缓冲区实际上直接指向要存储字节的最终数据结构，调用者可以直接与该缓冲区交互，从而消除中间复制操作。
+
